@@ -8,6 +8,8 @@ interface Props {
   edit?: string;
 }
 const { title, description, label, sections = [], edit } = Astro.props;
+
+import { Icon } from "astro-icon/components";
 ---
 
 <Base title={title} description={description}>
@@ -25,7 +27,7 @@ const { title, description, label, sections = [], edit } = Astro.props;
         edit && (
           <p class="edit">
             <a href={edit} target="_blank" rel="noopener noreferrer">
-              在 GitHub 上编辑此页 ↗
+              在 GitHub 上编辑此页 <Icon name="mdi:open-in-new" />
             </a>
           </p>
         )
@@ -40,7 +42,9 @@ const { title, description, label, sections = [], edit } = Astro.props;
       </nav><div class="aside-note">
         <span aria-hidden="true">✳</span><p>
           这是一份长期保留的说明。<br />博客文章请前往主站阅读。
-        </p><a href="https://blog.mcenahle.page/">访问梅之夏博客 ↗</a>
+        </p><a href="https://blog.mcenahle.page/"
+          >访问梅之夏博客 <Icon name="mdi:open-in-new" /></a
+        >
       </div>
     </aside>
   </div>

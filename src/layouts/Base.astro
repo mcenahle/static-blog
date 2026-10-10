@@ -24,6 +24,8 @@ const friends = [
   ["https://get.page/", ".page registry"],
 ];
 
+import { Icon } from "astro-icon/components";
+
 import { ClientRouter } from "astro:transitions";
 ---
 
@@ -78,7 +80,8 @@ import { ClientRouter } from "astro:transitions";
         }
       </nav>
       <a class="blog-link" href="https://blog.mcenahle.page/"
-        >前往博客 <span aria-hidden="true">↗</span></a
+        >前往博客 <span aria-hidden="true"><Icon name="mdi:open-in-new" /></span
+        ></a
       >
     </header>
     <main id="main" class="wrap"><slot /></main>
@@ -94,7 +97,7 @@ import { ClientRouter } from "astro:transitions";
               friends.map(([href, label]) => (
                 <li>
                   <a href={href} target="_blank" rel="noopener noreferrer">
-                    {label} ↗
+                    {label} <Icon name="mdi:open-in-new" />
                   </a>
                 </li>
               ))

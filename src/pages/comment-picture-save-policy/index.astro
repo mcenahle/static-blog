@@ -1,7 +1,41 @@
 ---
-import Article from '../../layouts/Article.astro';
+import Article from "../../layouts/Article.astro";
+
+import { Icon } from "astro-icon/components";
 ---
-<Article title="博客评论区图片存储说明" label="图片存储说明" description="上传图片前，了解评论区图片的存储方式、迁移安排与使用规则。" sections={[{id:'policy',title:'存储与使用规则'}]} edit="https://mcenahle.dev/gh/blog/edit/main/source/h5/comment-picture-save-policy.shtml">
-  <p>尊敬的访客：</p><p>感谢您访问梅之夏博客并在评论区参与交流。在上传图片前，请您了解本博客对评论区图片的存储方式。本说明仅需花费您少量时间阅读，感谢您的理解与支持。</p>
-  <section id="policy"><h2>存储与使用规则</h2><ol class="policy-list"><li>本博客评论区上传的图片存储于去不图床（杜老师说旗下图片外链平台，<a href="https://7bu.top/" target="_blank" rel="noopener noreferrer">https://7bu.top/ ↗</a>），并通过技术接口与评论系统 Twikoo 连接。</li><li>图片默认长期保存。当存储空间使用量达到总额度（2GB）的一定比例时，站长可能会将部分较早上传的图片迁移至本博客的静态托管站点，并删除去不图床中的原文件，以节省存储空间。正常情况下，此类迁移不会影响图片访问。</li><li>去不图床为付费服务，但本博客不会因图片存储服务向访客收取任何费用。</li><li>请勿上传违法违规、侵犯他人著作权、肖像权、隐私权或其他合法权益的图片内容。站长保留删除相关图片及评论内容的权利。</li></ol></section><p>再次感谢您的阅读，祝您在梅之夏博客浏览愉快！</p>
+
+<Article
+  title="博客评论区图片存储说明"
+  label="图片存储说明"
+  description="上传图片前，了解评论区图片的存储方式、迁移安排与使用规则。"
+  sections={[{ id: "policy", title: "存储与使用规则" }]}
+  edit="https://mcenahle.dev/gh/blog/edit/main/source/h5/comment-picture-save-policy.shtml"
+>
+  <p>尊敬的访客：</p>
+  <p>
+    感谢您访问梅之夏博客并在评论区参与交流。在上传图片前，请您了解本博客对评论区图片的存储方式。本说明仅需花费您少量时间阅读，感谢您的理解与支持。
+  </p>
+  <section id="policy">
+    <h2>存储与使用规则</h2>
+    <ol class="policy-list">
+      <li>
+        本博客评论区上传的图片存储于去不图床（杜老师说旗下图片外链平台，<a
+          href="https://7bu.top/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >https://7bu.top/ <Icon name="mdi:open-in-new" /></a
+        >），并通过技术接口与评论系统 Twikoo 连接。
+      </li>
+      <li>
+        图片默认长期保存。当存储空间使用量达到总额度（2GB）的一定比例时，站长可能会将部分较早上传的图片迁移至本博客的静态托管站点，并删除去不图床中的原文件，以节省存储空间。正常情况下，此类迁移不会影响图片访问。
+      </li>
+      <li>
+        去不图床为付费服务，但本博客不会因图片存储服务向访客收取任何费用。
+      </li>
+      <li>
+        请勿上传违法违规、侵犯他人著作权、肖像权、隐私权或其他合法权益的图片内容。站长保留删除相关图片及评论内容的权利。
+      </li>
+    </ol>
+  </section>
+  <p>再次感谢您的阅读，祝您在梅之夏博客浏览愉快！</p>
 </Article>

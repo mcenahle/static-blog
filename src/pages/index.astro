@@ -1,8 +1,93 @@
 ---
-import Base from '../layouts/Base.astro';
+import Base from "../layouts/Base.astro";
+import { Icon } from "astro-icon/components";
 ---
-<Base title="首页" description="梅之夏博客的静态资源与说明站点。查阅 RSS 订阅方式、评论区图片存储说明和本站隐私政策。">
-  <section class="hero"><div><p class="eyebrow"><span class="dot"></span> 梅之夏博客 · 静态资源站</p><h1>让有用的信息，<br />有一个<span>长久的住所。</span></h1><p class="hero-description">这里收录梅之夏博客的订阅指引与相关说明。<br />简简单单，方便查阅，也方便下次再来。</p><a class="button" href="/subscribe/">订阅博客 RSS <span aria-hidden="true">↗</span></a><a class="text-button" href="https://blog.mcenahle.page/">去博客读文章 ↗</a></div><div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="flower">✳</div><span class="art-caption">梅之夏<br /><small>一隅静处 / 一份长留</small></span><span class="art-number">M. / 01</span></div></section>
-  <section class="resources" aria-labelledby="resource-title"><div class="section-title"><h2 id="resource-title">常用资源与说明</h2><span>随时查阅 · 长期保留</span></div><div class="cards"><a class="card" href="/subscribe/"><div class="card-meta"><span>01 / 订阅</span><span aria-hidden="true">↗</span></div><span class="card-icon" aria-hidden="true">◔</span><h3>把更新带到你的阅读器</h3><p>了解 RSS，获取订阅地址，按自己的节奏阅读梅之夏博客。</p><span class="card-action">RSS 订阅指南 <span aria-hidden="true">→</span></span></a><a class="card" href="/comment-picture-save-policy/"><div class="card-meta"><span>02 / 说明</span><span aria-hidden="true">↗</span></div><span class="card-icon" aria-hidden="true">▧</span><h3>评论中的图片，存在哪里？</h3><p>关于评论区图片的存储平台、长期保存、迁移与使用规则。</p><span class="card-action">图片存储说明 <span aria-hidden="true">→</span></span></a><a class="card" href="/privacy/"><div class="card-meta"><span>03 / 隐私</span><span aria-hidden="true">↗</span></div><span class="card-icon" aria-hidden="true">◇</span><h3>关于本站与你的数据</h3><p>本站使用哪些技术，以及访问页面时涉及的数据处理。</p><span class="card-action">阅读隐私政策 <span aria-hidden="true">→</span></span></a></div></section>
-  <section class="home-note"><span class="eyebrow">关于这里</span><p>文章在博客，说明在这里。<br /><span>这是「梅之夏博客」的静态资源站，主要承载长期存在、更新频率较低的内容。</span></p><a href="https://blog.mcenahle.page/">blog.mcenahle.page ↗</a></section>
+
+<Base
+  title="首页"
+  description="梅之夏博客的静态资源与说明站点。查阅 RSS 订阅方式、评论区图片存储说明和本站隐私政策。"
+>
+  <section class="hero">
+    <div>
+      <p class="eyebrow">
+        <span class="dot"></span> 梅之夏博客 · 静态资源站
+      </p>
+      <h1>让有用的信息，<br />有一个<span>长久的住所。</span></h1>
+      <p class="hero-description">
+        这里收录梅之夏博客的订阅指引与相关说明。<br />
+        简简单单，方便查阅，也方便下次再来。
+      </p>
+      <a class="button" href="/subscribe/"
+        >订阅博客 RSS <span aria-hidden="true">↗</span></a
+      >
+      <a class="text-button" href="https://blog.mcenahle.page/"
+        >去博客读文章 <Icon name="mdi:open-in-new" /></a
+      >
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="orbit orbit-one"></div>
+      <div class="orbit orbit-two"></div>
+      <div class="flower">✳</div>
+      <span class="art-caption">
+        梅之夏<br />
+        <small>一隅静处 / 一份长留</small>
+      </span>
+      <span class="art-number">M. / 01</span>
+    </div>
+  </section>
+  <section class="resources" aria-labelledby="resource-title">
+    <div class="section-title">
+      <h2 id="resource-title">常用资源与说明</h2>
+      <span>随时查阅 · 长期保留</span>
+    </div>
+    <div class="cards">
+      <a class="card" href="/subscribe/">
+        <div class="card-meta">
+          <span>01 / 订阅</span><span aria-hidden="true">↗</span>
+        </div>
+        <span class="card-icon" aria-hidden="true">◔</span>
+        <h3>把更新带到你的阅读器</h3>
+        <p>了解 RSS，获取订阅地址，按自己的节奏阅读梅之夏博客。</p>
+        <span class="card-action"
+          >RSS 订阅指南 <span aria-hidden="true">→</span>
+        </span></a
+      >
+      <a class="card" href="/comment-picture-save-policy/">
+        <div class="card-meta">
+          <span>02 / 说明</span>
+          <span aria-hidden="true">↗</span>
+        </div>
+        <span class="card-icon" aria-hidden="true">▧</span>
+        <h3>评论中的图片，存在哪里？</h3>
+        <p>关于评论区图片的存储平台、长期保存、迁移与使用规则。</p>
+        <span class="card-action"
+          >图片存储说明 <span aria-hidden="true">→</span>
+        </span></a
+      >
+      <a class="card" href="/privacy/">
+        <div class="card-meta">
+          <span>03 / 隐私</span>
+          <span aria-hidden="true">↗</span>
+        </div>
+        <span class="card-icon" aria-hidden="true">◇</span>
+        <h3>关于本站与你的数据</h3>
+        <p>本站使用哪些技术，以及访问页面时涉及的数据处理。</p>
+        <span class="card-action"
+          >阅读隐私政策 <span aria-hidden="true">→</span>
+        </span></a
+      >
+    </div>
+  </section>
+  <section class="home-note">
+    <span class="eyebrow">关于这里</span>
+    <p>
+      文章在博客，说明在这里。<br />
+      <span
+        >这是「梅之夏博客」的静态资源站，主要承载长期存在、更新频率较低的内容。</span
+      >
+    </p>
+    <a href="https://blog.mcenahle.page/"
+      >blog.mcenahle.page <Icon name="mdi:open-in-new" /></a
+    >
+  </section>
 </Base>
