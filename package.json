@@ -11,6 +11,8 @@
     "verify": "node scripts/verify.mjs"
   },
   "dependencies": {
-    "astro": "^6.0.0"
+    "@iconify-json/mdi": "^1.2.3",
+    "astro": "^6.0.0",
+    "astro-icon": "^1.2.0"
   }
 }
