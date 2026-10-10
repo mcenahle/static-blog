@@ -1,0 +1,120 @@
+---
+import Article from "../../layouts/Article.astro";
+const sections = [
+  { id: "what", title: "什么是 RSS？" },
+  { id: "feed", title: "博客的 RSS 地址" },
+  { id: "readers", title: "选择 RSS 阅读器" },
+  { id: "steps", title: "如何订阅" },
+];
+---
+
+<Article
+  title="订阅梅之夏博客 RSS"
+  label="RSS 订阅"
+  description="不必反复打开网站，让新的文章来到你的阅读器。想看什么，你说了算！"
+  sections={sections}
+  edit="https://mcenahle.dev/gh/blog/edit/main/source/h5/subscribe.shtml"
+>
+  <section id="what">
+    <h2>什么是 RSS？</h2>
+    <p class="source">信息来源：维基百科</p>
+    <p>
+      RSS（英文全称：RDF Site Summary 或 Really Simple
+      Syndication），中文译作简易信息聚合，也称聚合内容，是一种消息来源格式规范，用以聚合多个网站更新的内容并自动通知网站订阅者。使用
+      RSS 后，网站订阅者无需手动查看网站是否有新的内容，同时 RSS
+      能将多个网站的更新集成并以摘要形式呈现，有助于订阅者快速获取重要信息，并选择性点击查看。
+    </p>
+  </section>
+  <section id="feed">
+    <h2>本网站有 RSS 吗？</h2><p>
+      当然有啦！借助 <a
+        href="https://github.com/hexojs/hexo-generator-feed"
+        target="_blank"
+        rel="noopener noreferrer">hexo-generator-feed ↗</a
+      > 插件，我给梅之夏博客也加上了 RSS。
+    </p><div class="feed-box">
+      <span class="eyebrow">梅之夏博客 / RSS 地址</span><code id="rss-url"
+        >https://blog.mcenahle.page/feed.xml</code
+      ><div class="feed-actions">
+        <a
+          class="button"
+          href="https://blog.mcenahle.page/feed.xml"
+          target="_blank"
+          rel="noopener noreferrer">查看 RSS ↗</a
+        ><button id="copy-btn" hidden type="button">复制地址</button><span
+          id="copy-status"
+          role="status"
+          aria-live="polite"></span>
+      </div>
+    </div><p>
+      通过
+      RSS，你可以随时随地获取本网站的最新博客文章，不受制于当前的网络大数据算法。<strong
+        >想看什么，你说了算！</strong
+      >
+    </p>
+  </section>
+  <section id="readers">
+    <h2>我是 RSS 小白。怎么使用 RSS？</h2>
+    <p>
+      RSS 本身只是数据格式，你需要借助 RSS 阅读器进行订阅和阅读。常见的 RSS
+      阅读器包括：
+    </p>
+    <ul class="reader-list">
+      <li>
+        <a href="https://feedly.com/" target="_blank" rel="noopener noreferrer"
+          >Feedly ↗</a
+        ><span>网页版、Android、iOS</span>
+      </li>
+      <li>
+        <a
+          href="https://hyliu.me/fluent-reader/"
+          target="_blank"
+          rel="noopener noreferrer">Fluent Reader ↗</a
+        ><span>Windows</span>
+      </li>
+      <li>
+        <a
+          href="https://github.com/ReadYouApp/ReadYou/"
+          target="_blank"
+          rel="noopener noreferrer">Read You ↗</a
+        ><span>Android</span>
+      </li>
+      <li>
+        <a
+          href="https://netnewswire.com/"
+          target="_blank"
+          rel="noopener noreferrer">NetNewsWire ↗</a
+        ><span>macOS、iOS</span>
+      </li>
+    </ul>
+  </section>
+  <section id="steps">
+    <h2>五步完成订阅</h2>
+    <ol>
+      <li>
+        复制本网站 RSS 地址：<code>https://blog.mcenahle.page/feed.xml</code>；
+      </li>
+      <li>打开 RSS 阅读器；</li><li>点击“添加订阅”；</li><li>
+        粘贴 RSS 地址；
+      </li>
+      <li>完成订阅。</li>
+    </ol>
+  </section>
+</Article>
+<script>
+  const button = document.querySelector<HTMLButtonElement>("#copy-btn");
+  const status = document.querySelector<HTMLElement>("#copy-status");
+  if (button && status && navigator.clipboard) {
+    button.hidden = false;
+    button.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(
+          "https://blog.mcenahle.page/feed.xml",
+        );
+        status.textContent = "已复制 RSS 地址";
+      } catch {
+        status.textContent = "复制失败，请选中上方地址手动复制。";
+      }
+    });
+  }
+</script>

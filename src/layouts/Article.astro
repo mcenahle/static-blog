@@ -1,0 +1,47 @@
+---
+import Base from "./Base.astro";
+interface Props {
+  title: string;
+  description: string;
+  label: string;
+  sections?: { id: string; title: string }[];
+  edit?: string;
+}
+const { title, description, label, sections = [], edit } = Astro.props;
+---
+
+<Base title={title} description={description}>
+  <div class="breadcrumb">
+    <a href="/">首页</a><span aria-hidden="true">/</span><span>{label}</span>
+  </div>
+  <header class="page-heading">
+    <p class="eyebrow">梅之夏 / {label}</p><h1>{title}</h1><p class="lead">
+      {description}
+    </p>
+  </header>
+  <div class="article-grid">
+    <article class="prose">
+      <slot />{
+        edit && (
+          <p class="edit">
+            <a href={edit} target="_blank" rel="noopener noreferrer">
+              在 GitHub 上编辑此页 ↗
+            </a>
+          </p>
+        )
+      }
+    </article><aside class="aside">
+      <p class="eyebrow">本页导航</p><nav aria-label="本页目录">
+        {
+          sections.map((section) => (
+            <a href={`#${section.id}`}>{section.title}</a>
+          ))
+        }
+      </nav><div class="aside-note">
+        <span aria-hidden="true">✳</span><p>
+          这是一份长期保留的说明。<br />博客文章请前往主站阅读。
+        </p><a href="https://blog.mcenahle.page/">访问梅之夏博客 ↗</a>
+      </div>
+    </aside>
+  </div>
+</Base>

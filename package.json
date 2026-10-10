@@ -1,0 +1,16 @@
+{
+  "name": "static.blog.mcenahle.page",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.18.3",
+  "scripts": {
+    "dev": "astro dev --host",
+    "build": "astro build",
+    "preview": "astro preview",
+    "verify": "node scripts/verify.mjs"
+  },
+  "dependencies": {
+    "astro": "^6.0.0"
+  }
+}

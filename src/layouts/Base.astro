@@ -1,0 +1,115 @@
+---
+import "../styles/global.css";
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+const path = Astro.url.pathname;
+const links = [
+  ["/", "首页"],
+  ["/subscribe/", "RSS 订阅"],
+  ["/comment-picture-save-policy/", "图片存储说明"],
+  ["/privacy/", "隐私政策"],
+];
+const friends = [
+  ["https://www.david03.top/", "【推荐链接】Davidの3号基地"],
+  ["https://www.iczrx.cn/", "【推荐链接】晚夜的个人博客"],
+  ["https://vjo.cc/", "刘郎阁"],
+  ["https://oba.by/", "obaby"],
+  ["https://blog.真寻.top/", "兔兔博客🇨🇳"],
+  ["https://github.com/", "GitHub"],
+  ["https://developer.mozilla.org/zh-CN/", "MDN"],
+  ["https://www.youtube.com/", "YouTube"],
+  ["https://get.page/", ".page registry"],
+];
+
+import { ClientRouter } from "astro:transitions";
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" /><meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>{title} · 梅之夏静态资源</title><meta
+      name="description"
+      content={description}
+    />
+    <link rel="canonical" href={new URL(path, Astro.site)} /><link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.svg"
+    />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="梅之夏博客 RSS"
+      href="https://blog.mcenahle.page/feed.xml"
+    />
+    <meta property="og:title" content={title} /><meta
+      property="og:description"
+      content={description}
+    /><meta property="og:type" content="website" /><meta
+      property="og:url"
+      content={new URL(path, Astro.site)}
+    />
+    {path.startsWith("/404") && <meta name="robots" content="noindex" />}
+
+    <ClientRouter />
+  </head>
+  <body>
+    <a class="skip" href="#main">跳至主要内容</a>
+    <header class="site-header wrap">
+      <a class="brand" href="/" aria-label="梅之夏静态资源首页"
+        ><img src="/favicon.svg" width="38" height="38" alt="" /><span
+          >梅之夏<small>静态资源与说明</small></span
+        ></a
+      >
+      <nav aria-label="主导航">
+        {
+          links.map(([href, label]) => (
+            <a href={href} aria-current={path === href ? "page" : undefined}>
+              {label}
+            </a>
+          ))
+        }
+      </nav>
+      <a class="blog-link" href="https://blog.mcenahle.page/"
+        >前往博客 <span aria-hidden="true">↗</span></a
+      >
+    </header>
+    <main id="main" class="wrap"><slot /></main>
+    <footer class="site-footer wrap">
+      <div class="footer-top">
+        <div>
+          <strong>梅之夏 · 常驻于此</strong><p>
+            订阅、资源与说明，留一个方便找到的地方。
+          </p>
+        </div><details>
+          <summary>友情链接与常用网站</summary><ul>
+            {
+              friends.map(([href, label]) => (
+                <li>
+                  <a href={href} target="_blank" rel="noopener noreferrer">
+                    {label} ↗
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </details>
+      </div>
+      <div class="footer-bottom">
+        <span>
+          页面由 Codex 制作，Mcenahle 审核并维护。© 2024-2026 梅之夏。
+        </span>
+        <span>
+          <a href="/privacy/">隐私政策</a> · static.blog.mcenahle.page
+        </span>
+      </div>
+    </footer>
+  </body>
+</html>
